@@ -193,7 +193,7 @@ class Game {
     showInviteModal() {
         this.playAudio(this.menuSound);
         this.inviteModal.classList.add('active');
-        this.inviteLink.value = window.location.href;
+        this.inviteLink.value = 'Заходи потапать снюсик в https://t.me/SnusTapbot';
     }
 
     hideInviteModal() {
