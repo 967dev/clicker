@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Снюс Кликер - увлекательная игра-кликер с уровнями, фонами и снюсом.">
+<title>Снюс Кликер</title>
+<link rel="stylesheet" href="styles.css?v=2">
+<link rel="manifest" href="manifest.json">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@400;700;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+    <div class="game-container">
+        <!-- Главное меню -->
+        <div id="main-menu" class="menu active">
+            <h1>Снюс Кликер</h1>
+            <button id="start-btn" class="menu-btn">Играть</button>
+            <button id="background-btn" class="menu-btn">Выбрать фон</button>
+            <button id="leaderboard-btn" class="menu-btn">Лидерборд</button>
+            <button id="invite-btn" class="menu-btn">Пригласить друга</button>
+        </div>
+
+        <!-- Игровой экран -->
+        <div id="game-screen" class="game-screen">
+            <div class="game-controls">
+                <button id="back-to-menu-from-game" class="control-btn" aria-label="Вернуться в меню">
+                    <span class="icon">←</span>
+                    <span class="tooltip">В меню</span>
+                </button>
+                <button id="sound-toggle" class="control-btn" aria-label="Включить/выключить звук">
+                    <span class="icon">🔊</span>
+                    <span class="tooltip">Звук</span>
+                </button>
+            </div>
+            <div class="top-bar">
+                <div class="level-container">
+                    <span>Уровень: </span>
+                    <span id="current-level">1</span>
+                </div>
+                <div class="rank-container">
+                    <span>Ранг: </span>
+                    <span id="current-rank">Новичок</span>
+                </div>
+                <div class="score-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                    <div class="score-text">
+                        <span id="current-score">0</span>
+                        <span>/</span>
+                        <span id="level-requirement">10</span>
+                    </div>
+                </div>
+            </div>
+            <div id="snus-container" class="snus-container">
+                <div class="click-effect"></div>
+                <img src="assets/snus.png" alt="Снюс" id="snus" class="snus">
+            </div>
+        </div>
+
+        <!-- Лидерборд -->
+        <div id="leaderboard" class="leaderboard">
+            <h2>Мои Рекорды (Local)</h2>
+            <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 10px;">Глобальный рейтинг в разработке...</p>
+            <div id="leaderboard-list"></div>
+            <button id="back-to-menu" class="menu-btn">Назад</button>
+        </div>
+
+        <!-- Модальное окно выбора фона -->
+        <div id="background-modal" class="modal">
+            <div class="modal-content">
+                <h2>Выберите фон</h2>
+                <div class="background-grid" id="background-grid"></div>
+                <div class="promo-container">
+                    <input type="text" id="promo-input" placeholder="Введите код...">
+                    <button id="promo-btn" class="menu-btn small-btn">OK</button>
+                </div>
+                <button id="close-background" class="menu-btn">Закрыть</button>
+            </div>
+        </div>
+
+        <!-- Модальное окно приглашения -->
+        <div id="invite-modal" class="modal">
+            <div class="modal-content">
+                <h2>Пригласите друзей</h2>
+                <p>Поделитесь этой ссылкой с друзьями:</p>
+                <div class="invite-link-container">
+                    <input type="text" id="invite-link" readonly>
+                    <button id="copy-link">Копировать</button>
+                </div>
+                <button id="close-invite" class="menu-btn">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Аудио элементы -->
+    <audio id="click-sound" src="assets/click.mp3"></audio>
+    <audio id="level-up-sound" src="assets/level-up.mp3"></audio>
+    <audio id="menu-sound" src="assets/menu.mp3"></audio>
+
+    <script src="config.js?v=2"></script>
+    <script src="game.js?v=2"></script>
+</body>
+
+</html>
