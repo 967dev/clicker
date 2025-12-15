@@ -1,0 +1,39 @@
+/* Mobile‑specific UI fixes (focus outline, zoom, controls, scaling) */
+
+/* 1. Remove focus outline from interactive images */
+.snus,
+.snus:focus,
+.snus:active {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+/* 2. Lock viewport & prevent scroll gestures */
+html,
+body {
+    overscroll-behavior: none;
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+}
+
+/* 3. Anchor control buttons safely */
+.game-controls {
+    position: fixed;
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* 4. Prevent container scaling on small screens */
+@media (max-width: 500px) {
+    .game-container {
+        transform: none !important;
+    }
+}
