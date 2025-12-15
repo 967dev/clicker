@@ -84,17 +84,15 @@
         </div>
 
         <!-- Модальное окно приглашения -->
-        <div id="invite-modal" class="modal">
-            <div class="modal-content">
-                <h2>Пригласите друзей</h2>
-                <p>Поделитесь этой ссылкой с друзьями:</p>
-                <div class="invite-link-container">
-                    <input type="text" id="invite-link" readonly>
-                    <button id="copy-link">Копировать</button>
-                </div>
-                <button id="close-invite" class="menu-btn">Закрыть</button>
-            </div>
+        <h2>Пригласите друзей</h2>
+        <p>Поделитесь этим ботом в Telegram:</p>
+        <div class="invite-link-container">
+            <input type="text" id="invite-link" readonly value="https://t.me/SnusTapbot">
+            <button id="copy-link" class="menu-btn small-btn">Копировать ссылку</button>
+            <a href="https://t.me/SnusTapbot" target="_blank" class="menu-btn small-btn"
+                style="margin-left:8px;">Открыть бота</a>
         </div>
+        <button id="close-invite" class="menu-btn">Закрыть</button>
     </div>
 
     <!-- Аудио элементы -->
